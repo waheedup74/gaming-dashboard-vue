@@ -2,14 +2,14 @@
   <div>
     <div class="banner">
       <img src="/images/players.png" alt="player" />
-      <h1>Player: {{ playerId }}</h1>
+      <h1>Player: 10099</h1>
     </div>
     <div class="breadcrumbs">
       <router-link to="/players">Players</router-link>
       <span>
         <img src="/images/svg/chevron-breadcrumb.svg" alt="chevron">
       </span>
-      <span class="current">Player {{ playerId }}</span>
+      <span class="current">Player 10099</span>
     </div>
     <div class="desktop-tabs">
       <div @click="switchTab('overview')" :class="{ active: tab === 'overview'}" class="tab"> OVERVIEW </div>
@@ -20,33 +20,33 @@
     <div v-if="tab === 'overview'">
       <div class="right-btn-container">
         <div class="buttons">
-          <button v-if="player?.excludeBonuses" @click="showModal('enable')" class="btn-green">
+          <button  @click="showModal('enable')" class="btn-green">
             Enable bonuses
           </button>
           <!-- !! TEMPORARY HIDING !! -->
           <!-- <button v-if="!player?.excludeBonuses" @click="showModal('disable')" class="btn-red">
             Exclude from Bonuses
           </button> -->
-          <button v-if="!player?.excludeBonuses" @click="showModal('bonus')" class="btn-normal">
+          <button  @click="showModal('bonus')" class="btn-normal">
             <img src="/images/svg/plus-24.svg" alt="plus">
             Add Bonus
           </button>
         </div>
       </div>
-      <div v-if="player === null && playerFetched" class="player-not-found">
+      <!-- <div v-if="player === null && playerFetched" class="player-not-found">
         Player not found
-      </div>
-       <template v-if="!playerFetched">
+      </div> -->
+       <!-- <template >
         <div class="api-loader-details-page">
           <div class="loader"></div>
         </div>
-      </template>
-      <div v-if="player != null" class="player-stats-container player-stats-container-large">
+      </template> -->
+      <div  class="player-stats-container player-stats-container-large">
         <div class="card">
           <div class="stat-container">
             <div class="stats">
               <p>Total Wager</p>
-              <h3>£{{addCommas(player.totalWager)}}</h3>
+              <h3>£{{addCommas(100)}}</h3>
             </div>
             <img src="/images/svg/wager-80.svg" alt="TW">
           </div>
@@ -55,18 +55,18 @@
           <div class="stat-container">
             <div class="stats">
               <p>GGR</p>
-              <h3 style="color: #82e14f">£{{addCommas(player.totalGGR)}}</h3>
+              <h3 style="color: #82e14f">£{{addCommas(10)}}</h3>
             </div>
             <img src="/images/svg/ggr-80.svg" alt="ggr">
           </div>
         </div>
       </div>
-      <div v-if="player != null" class="player-stats-container">
+      <div class="player-stats-container">
         <div class="card">
           <div class="stat-container">
             <div class="stats">
               <p>Total Deposited</p>
-              <h3>£{{addCommas(player.totalDeposited)}}</h3>
+              <h3>£{{addCommas(400)}}</h3>
             </div>
             <img src="/images/svg/DepositAmount.svg" alt="DA">
           </div>
@@ -76,8 +76,8 @@
             <div class="stats">
               <p>Last Deposit</p>
               <div>
-                <h4>£{{addCommas(player.lastDepositAmount)}}</h4>
-                <span>{{player.lastDepositAmount === 0 ? "N/A" : player.lastDepositDate.split('.')[0].replace('T', ' ')}}</span>
+                <h4>£{{addCommas(300)}}</h4>
+                <span>300</span>
               </div>
             </div>
             <img src="/images/svg/LastDeposit-88.svg" alt="LD">
@@ -87,7 +87,7 @@
           <div class="stat-container">
             <div class="stats">
               <p>Deposit Count</p>
-              <h3>{{player.depositCount}}</h3>
+              <h3>9</h3>
             </div>
             <img src="/images/svg/DepositCount.svg" alt="DC">
           </div>
@@ -96,7 +96,7 @@
           <div class="stat-container">
             <div class="stats">
               <p>Total Bonuses</p>
-              <h3 style="color: #ff3e1d">£{{addCommas(player.totalBonusAmount)}}</h3>
+              <h3 style="color: #ff3e1d">£{{addCommas(50)}}</h3>
             </div>
             <img src="/images/svg/Bonuses.svg" alt="Bo">
           </div>
@@ -106,8 +106,8 @@
             <div class="stats">
               <p>Signup Date</p>
               <div>
-                <h4>{{player.signupDate.split('T')[0]}}</h4>
-                <span>{{player.signupDate.split('T')[1].split('.')[0]}}</span>
+                <h4>2024-04-20</h4>
+                <span>13:56:23</span>
               </div>
             </div>
             <img src="/images/svg/SignupDate.svg" alt="SD">
@@ -118,8 +118,8 @@
             <div class="stats">
               <p>Last Bet</p>
               <div>
-                <h4>£{{addCommas(player.lastBetAmount)}}</h4>
-                <span>{{player.lastBetAmount === 0 ? "N/A": player.lastBetDate.split('.')[0].replace('T', ' ')}}</span>
+                <h4>£{{addCommas(300)}}</h4>
+                <span>13:20:24</span>
               </div>
             </div>
             <img src="/images/svg/LastBet.svg" alt="LB">
@@ -129,7 +129,7 @@
           <div class="stat-container">
             <div class="stats">
               <p>Total Bets</p>
-              <h3>{{player.totalBets}}</h3>
+              <h3>{{10}}</h3>
             </div>
             <img src="/images/svg/TotalBets.svg" alt="TB">
           </div>
@@ -138,7 +138,7 @@
           <div class="stat-container">
             <div class="stats" >
               <p>Signup Code</p>
-              <h4 class="code">{{player.signupPromoCode || "N/A"}}</h4>
+              <h4 class="code">test_abcd</h4>
             </div>
             <img src="/images/svg/SignupCode.svg" alt="SC">
           </div>
@@ -147,12 +147,12 @@
     </div>
 
     <div v-if="tab === 'payments'" class="mt-24"> 
-      <template v-if="!isPayment">
+      <!-- <template v-if="!isPayment">
         <div class="api-loader-details-page">
           <div class="loader"></div>
         </div>
-      </template>
-      <div v-else class="card">
+      </template> -->
+      <div class="card">
       <div class="payment-filters-container">
         <div @click="showFilters = !showFilters" class="filters-header">
           <div class="filter">
@@ -204,27 +204,27 @@
               <th><span>Amount <span @click="sortByPayments('amount')" v-html="getSortIconPayments('amount')" /></span></th>
             </tr>
           </thead>
-          <tbody v-if="payments.length > 0">
-            <tr v-for="payment in payments" :key="payment.id">
-              <td>{{payment.externalId}}</td>
-              <td>{{formatDate(payment.dateCreated)}}</td>
+          <tbody >
+            <tr v-for="payment in 4" :key="payment.id">
+              <td>1234</td>
+              <td>2024-04-20</td>
               <td>
-                <div v-if="payment.type === 'deposit'" class="category-logo-container">
+                <div class="category-logo-container">
                   <img src="/images/svg/Deposit.svg" alt="icon"> <span>Deposit</span>
                 </div>
-                <div class="category-logo-container" v-else>
+                <!-- <div class="category-logo-container" v-else>
                   <img src="/images/svg/withdraw.svg" alt="icon"> <span>Withdrawal</span>
-                </div>
+                </div> -->
               </td>
-              <td>{{payment.currency}}</td>
-              <td>{{addCommas(payment.amount)}}</td>
+              <td>GBP</td>
+              <td>{{addCommas(1234.56)}}</td>
             </tr>
           </tbody>
-          <tbody v-else>
+          <!-- <tbody v-else>
             <tr>
               <td colspan="7" style="text-align: center;">No payments found.</td>
             </tr>
-          </tbody>
+          </tbody> -->
         </table>
       </div>
       <Pagination @page-changed="setPaymentPage" :pageSize="paymentsPageSize" :pageCount="paymentsPageCount" :rowCount="paymentsRowCount" /> 
@@ -232,12 +232,12 @@
     </div>
 
     <div v-if="tab === 'bets'" class="mt-24">
-      <template v-if="!isBets">
+      <!-- <template v-if="!isBets">
         <div class="api-loader-details-page">
           <div class="loader"></div>
         </div>
-      </template>
-      <div v-else class="card">
+      </template> -->
+      <div class="card">
         <div class="palyer-bet-filters">
           <div @click="showFilters = !showFilters" class="filters-header">
             <div class="filter">
@@ -285,55 +285,55 @@
                 <th><span>Wager <span @click="sortByBets('wager')" v-html="getSortIconBets('wager')" /></span></th>
               </tr>
             </thead>
-            <tbody v-if="bets.length > 0">
-              <tr v-for="bet in bets" :key="bet.id">
-                <td>{{bet.externalId}}</td>
-                <td>{{formatDate(bet.dateCreated)}}</td>
-                <td>{{bet.gameId}}</td>
-                <td>{{bet.currency}}</td>
-                <td>{{addCommas(bet.wager)}}</td>
+            <tbody>
+              <tr v-for="bet in 4" :key="bet.id">
+                <td>123456</td>
+                <td>2024-04-20</td>
+                <td>test game</td>
+                <td>GBP</td>
+                <td>{{addCommas(20.00)}}</td>
               </tr>
             </tbody>
-            <tbody v-else>
+            <!-- <tbody v-else>
               <tr>
                 <td colspan="7" style="text-align: center;">No bets found.</td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
         </div>
         <Pagination @page-changed="setBetPage" :pageSize="betsPageSize" :pageCount="betsPageCount" :rowCount="betsRowCount" /> 
       </div>
     </div>
     <div v-if="tab === 'bonus'">
-      <template v-if="!isBonus">
+      <!-- <template v-if="!isBonus">
         <div class="api-loader-details-page">
           <div class="loader"></div>
         </div>
-      </template>
-      <template v-else>
+      </template> -->
+      <!-- <template> -->
         <div class="right-btn-container">
           <div class="buttons">
-            <button v-if="player?.excludeBonuses" @click="showModal('enable')" class="btn-green">
+            <button @click="showModal('enable')" class="btn-green">
               Enable bonuses
             </button>
             <!-- !! TEMPORARY HIDING !! -->
             <!-- <button v-if="!player?.excludeBonuses" @click="showModal('disable')" class="btn-red">
               Exclude from Bonuses
             </button> -->
-            <button v-if="!player?.excludeBonuses" @click="showModal('bonus')" class="btn-normal">
+            <button  @click="showModal('bonus')" class="btn-normal">
               <img src="/images/svg/plus-24.svg" alt="plus">
               Add Bonus
             </button>
           </div>
         </div>
         <!-- !! TEMPORARY HIDING !! -->
-        <!-- <div v-if="bonusBalance != null" class="bonus-detail-container">
+        <div class="bonus-detail-container">
           <div class="bonusDetail"> 
             <h3>
               Current Bonus Balance
             </h3>
             <h1>
-              £{{bonusBalance.balance}}
+              £500
             </h1>
             <div class="dates">
               <div>
@@ -345,9 +345,9 @@
                 <p>Expiry Date</p>
               </div>
               <div class="date-container" style="">
-                <p class="date">{{formatDateOnly(bonusBalance.dateCredited)}}</p>
+                <p class="date">2024-04-20</p>
                 <img src="/images/svg/right-arrow-24.svg" alt="">
-                <p class="date"> {{formatDateOnly(bonusBalance.dateExpires)}}</p>
+                <p class="date">2024-04-20</p>
               </div>
             </div>
           </div>
@@ -355,24 +355,24 @@
             <h3>Active Bonus</h3>
             <div class="section-one">
               <div class="section-one-sub">
-                <p>Current Wager: <span>£{{bonusBalance.currentWager}}</span></p>
-                <p>Wager Required: <span>£{{bonusBalance.wagerRequired}}</span></p>
+                <p>Current Wager: <span>£200</span></p>
+                <p>Wager Required: <span>£300</span></p>
               </div>
               <div class="progress-bar-container">
-                <div class="progress-bar-indicator" :style="{width: (bonusBalance.currentWager/bonusBalance.wagerRequired * 100)+'%'}"></div>
+                <div class="progress-bar-indicator" :style="{width: '76%'}"></div>
               </div>
             </div>
             <div class="section-two">
               <div class="section-two-sub">
-                <p>Bonus Credited: <span>£{{bonusBalance.bonusCredited}}</span></p>
-                <p>Currency: <span>{{bonusBalance.currency}}</span></p>
-                <p>Rollover: <span>{{bonusBalance.rollover}}x</span></p>
+                <p>Bonus Credited: <span>£500</span></p>
+                <p>Currency: <span>400</span></p>
+                <p>Rollover: <span>6x</span></p>
               </div>
                 <button @click="showModal('forfeit')" class="btn-red">Forfeit Bonus</button>
             </div>
           </div>
           <div class="img-container"></div>
-        </div> -->
+        </div>
         <div class="table-card">
           <h3>Bonus Credited</h3>
           <div class="table-container">
@@ -388,24 +388,27 @@
                   <!-- <th></th> -->
                 </tr>
               </thead>
-              <tbody v-if="bonuses.length > 0">
-                <tr v-for="(b, index) in bonuses" :key="index">
-                  <td>{{formatDate(b.dateCredited)}}</td>
-                  <td>{{b.currency}}</td>
+              <tbody>
+                <tr v-for="(b, index) in 5" :key="index">
+                  <td>2024-04-20</td>
+                  <td>GBP</td>
                   <td style="text-transform: uppercase">
-                    <span v-if="b.type === 'Free Spins'" class="badge badge-yellow">{{ b.type }}</span>
+                   <span  class="badge badge-yellow">Free spin</span>
+                    <!-- <span v-if="b.type === 'Free Spins'" class="badge badge-yellow">{{ b.type }}</span>
                     <span v-else-if="b.type === 'Deposit Bonus + Free Spins'" class="badge badge-purple">{{ b.type }}</span>
                     <span v-else-if="b.type === 'Cashback'" class="badge badge-red">{{ b.type }}</span>
                     <span v-else-if="b.type === 'Deposit Bonus'" class="badge badge-blue">{{ b.type }}</span>
-                    <span v-else class="badge badge-yellow">{{ b.type }}</span>
+                    <span v-else class="badge badge-yellow">{{ b.type }}</span> -->
                   </td>
-                  <td>£{{addCommas(b.amount)}}</td>
+                  <td>£{{addCommas(65437)}}</td>
                   <td style="text-transform: uppercase">
-                    <span v-if="b.status === 'error'" class="status-error"><img src="/images/svg/error-red-16.svg" alt="icon">{{ b.status  }} </span>
+                    <span class="active-green">Active</span>
+
+                    <!-- <span v-if="b.status === 'error'" class="status-error"><img src="/images/svg/error-red-16.svg" alt="icon">{{ b.status  }} </span>
                     <span v-else-if="b.status === 'Complete'">{{ b.stats }} </span>
                     <span v-else-if="b.status === 'active'" class="active-green">{{ b.status }} </span>
                     <span v-else-if="b.status === 'Forfeited'">{{ b.status }} </span>
-                    <span v-else>{{ b.status }} </span>
+                    <span v-else>{{ b.status }} </span> -->
                   </td>
                   <!-- !! TEMPORARY HIDING !! -->
                   <!-- <td>
@@ -415,17 +418,17 @@
                   </td> -->
                 </tr>
               </tbody>
-              <tbody v-else>
+              <!-- <tbody v-else>
                 <tr>
                   <td colspan="7" style="text-align: center;">No record found.</td>
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
             
             <Pagination @page-changed="setBonusPage" :pageSize="bonusPageSize" :pageCount="bonusPageCount" :rowCount="bonusRowCount" /> 
           </div>
         </div>
-      </template>
+      <!-- </template> -->
     </div>
   
     <teleport to="body">
@@ -583,7 +586,7 @@ const bonusPageSize = ref(100);
 const bonusCurrentPage = ref(1);
 const bonussortByColumn = ref('dateCredited');
 const bonussortDirection = ref('desc');
-const playerFetched = ref(false);
+const playerFetched = ref(true);
 const isPayment = ref(false);
 const isBets = ref(false);
 const isBonus = ref(false);
@@ -638,7 +641,7 @@ const closeModal = () => {
 
 onMounted(async () => {
   await getPlayer();
-  await getBonusBalance();
+  // await getBonusBalance();
 });
 
 onBeforeRouteUpdate(async (to, from, next) => {
@@ -655,7 +658,7 @@ const getBonusBalance = async () => {
 };
 
 const getPlayer = async () => {
-  playerFetched.value = false;
+  playerFetched.value = true;
   const response = await api.players.getPlayer(playerId.value);
   player.value = response.data;
   playerFetched.value = true;
@@ -821,11 +824,11 @@ const paymentDatePlaced = (date) => {
 const switchTab = async (type) => {
   tab.value = type;
   if(type === 'bets') {
-    getBets()
+    // getBets()
   } else  if(type === 'payments') {
-    getPayments()
+    // getPayments()
   } else  if(type === 'bonus') {
-    getBonuses()
+    // getBonuses()
   }
 };
 

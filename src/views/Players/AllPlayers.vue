@@ -121,9 +121,10 @@ export default {
 import { ref, onMounted } from "vue";
 import api from "@/api/api";
 import { formatDate, addCommas, SortingIcon } from "@/utils";
+import playersList from "@/assets/players.json";
 
 const showFilters = ref(false);
-const players = ref([]);
+const players = ref(playersList.players);
 const idFilter = ref('');
 const signupDateFilter = ref('');
 const signupDateFilterRef = ref(null);
@@ -140,7 +141,7 @@ const pageSize = ref(100);
 const currentPage = ref(1);
 const sortByColumn = ref('signupDate');
 const sortDirection = ref('desc');
-const playersFetched = ref(false);
+const playersFetched = ref(true);
 
 const signupDate = (date) => {
   signupDateFilter.value = date.formattedDate;
@@ -154,18 +155,21 @@ const lastDepositDate = (date) => {
   lastDepositFilter.value = date.formattedDate;
 }
 
-onMounted(async () => {
-  await getPlayers();
+onMounted( () => {
+  // await getPlayers();
+
 });
 
 const getPlayers = async () => {
-  playersFetched.value = false;
-  players.value = [];
-  const response = await api.players.getPlayers(idFilter.value, signupDateFilter.value, signupCodeFilter.value, lastBetFilter.value, ggrFilter.value, wagerFilter.value, lastDepositFilter.value, currentPage.value, sortByColumn.value, sortDirection.value, pageSize.value);
   playersFetched.value = true;
-  players.value = response.data.players;
-  pageCount.value = response.data.pageCount;
-  rowCount.value = response.data.rowCount;
+  players.value = playersList;
+
+
+  // const response = await api.players.getPlayers(idFilter.value, signupDateFilter.value, signupCodeFilter.value, lastBetFilter.value, ggrFilter.value, wagerFilter.value, lastDepositFilter.value, currentPage.value, sortByColumn.value, sortDirection.value, pageSize.value);
+  // playersFetched.value = true;
+  // players.value = response.data.players;
+  // pageCount.value = response.data.pageCount;
+  // rowCount.value = response.data.rowCount;
 };
 
 const filterPlayers = async () => {
