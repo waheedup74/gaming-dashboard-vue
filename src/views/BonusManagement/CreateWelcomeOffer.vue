@@ -296,10 +296,10 @@ const endDate = (date) => {
 }
 
 async function saveOffer() {
-  const response = await api.bonuses.createWelcomeOffer(name.value, startDateFilter.value, endDateFilter.value, maxBudget.value, selectedOption.value['currency'], minimumDeposit.value, signupCode.value, wagerRequired.value, periodInDays.value, selectedGame.value, numberOfSpins.value, game.value, expireInDays.value);
-  if (response.status == 200) {
+//   const response = await api.bonuses.createWelcomeOffer(name.value, startDateFilter.value, endDateFilter.value, maxBudget.value, selectedOption.value['currency'], minimumDeposit.value, signupCode.value, wagerRequired.value, periodInDays.value, selectedGame.value, numberOfSpins.value, game.value, expireInDays.value);
+//   if (response.status == 200) {
     router.push("/welcome-offers");
-  }
+//   }
 }
 onMounted(() => {
     getGamesLists()

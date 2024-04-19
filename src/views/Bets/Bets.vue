@@ -57,17 +57,17 @@
                 <th><span>Wager <span @click="sortBy('wager')" v-html="getSortIcon('wager')" /></span></th>
               </tr>
             </thead>
-            <tbody v-if="bets.length > 0">
-              <tr v-for="bet in bets" :key="bet.gameId">
-                <td>{{bet.externalId}}</td>
-                <td><router-link :to="{ name: 'player-details', params: { id: bet.playerId }}">{{bet.playerId}}</router-link></td>
-                <td>{{formatDate(bet.dateCreated)}}</td>
-                <td>{{bet.gameId}}</td>
-                <td>{{bet.currency}}</td>
-                <td>{{addCommas(bet.wager)}}</td>
+            <tbody>
+              <tr v-for="bet in 4" :key="bet">
+                <td>bet_id</td>
+                <td><router-link :to="{ name: 'player-details', params: { id: 10001 }}">Test Player</router-link></td>
+                <td>2024-04-20</td>
+                <td>Clash of Kings</td>
+                <td>GBP</td>
+                <td>{{addCommas(200)}}</td>
               </tr>
             </tbody>
-            <tbody v-else>
+            <!-- <tbody v-else>
               <tr>
                 <td colspan="7" style="text-align: center;">
                   <template v-if="betsFetched">
@@ -75,17 +75,17 @@
                   </template>
                 </td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
         </div>
         <Pagination @page-changed="setPage" :pageSize="betsPageSize" :pageCount="betsPageCount" :rowCount="betsRowCount" />
 
-        <template v-if="!betsFetched">
+        <!-- <template v-if="!betsFetched">
           <div class="api-loader">
             <div class="loader">
             </div>
           </div>
-        </template>
+        </template> -->
       </div>
     </div>
   </template>

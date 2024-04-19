@@ -65,28 +65,27 @@
               <th><span>Type<span @click="sortBy('type')" v-html="getSortIcon('type')" /></span></th>
             </tr>
           </thead>
-          <tbody v-if="payments.length > 0">
-            <tr v-for="payment in payments" :key="payment.id">
-              <td>{{payment.externalId}}</td>
+          <tbody >
+            <tr v-for="payment in 4" :key="payment">
+              <td>10001</td>
               <td>
-                <router-link v-if="payment.externalPlayerId" :to="{ name: 'player-details', params: { id: payment.externalPlayerId }}">{{payment.externalPlayerId }}
+                <router-link :to="{ name: 'player-details', params: { id: 10001}}">Test Player
                 </router-link>
-                <span v-else>-</span>
               </td>
-              <td>{{formatDate(payment.dateCreated)}}</td>
-              <td>{{payment.currency}}</td>
-              <td>{{addCommas(payment.amount)}}</td>
+              <td>2024-04-20</td>
+              <td>GBP</td>
+              <td>{{addCommas(400)}}</td>
               <td>
-                <div v-if="payment.type === 'deposit'" class="category-logo-container">
+                <!-- <div v-if="payment.type === 'deposit'" class="category-logo-container">
                   <img src="/images/svg/Deposit.svg" alt="icon"> <span>Deposit</span>
-                </div>
-                <div class="category-logo-container" v-else>
+                </div> -->
+                <div class="category-logo-container">
                   <img src="/images/svg/withdraw.svg" alt="icon"> <span>Withdrawal</span>
                 </div>
               </td>
             </tr>
           </tbody>
-          <tbody v-else>
+          <!-- <tbody v-else>
             <tr>
               <td colspan="7" style="text-align: center;">
                 <template v-if="paymentsFetched">
@@ -94,16 +93,16 @@
                 </template>
               </td>
             </tr>
-          </tbody>
+          </tbody> -->
         </table>
       </div>
       <Pagination @page-changed="setPage" :pageSize="paymentsPageSize" :pageCount="paymentsPageCount" :rowCount="paymentsRowCount" />
-      <template v-if="!paymentsFetched">
+      <!-- <template v-if="!paymentsFetched">
         <div class="api-loader">
           <div class="loader">
           </div>
         </div>
-      </template> 
+      </template>  -->
     </div>
   </div>
 </template>

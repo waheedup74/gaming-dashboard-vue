@@ -29,6 +29,16 @@ import Payments from "@/views/Payments/Payments.vue";
 import Bets from "@/views/Bets/Bets.vue";
 import NotFound from "@/views/NotFound.vue"
 import BonusBalance from "@/views/BonusManagement/BonusBalance.vue";
+import AllLegalPages from "@/views/CMS/legal/AllLegalPages.vue";
+import CreateLegalPage from "@/views/CMS/legal/CreateLegalPage.vue";
+import EditLegalPage from "@/views/CMS/legal/EditLegalPage.vue";
+import AllPages from "@/views/CMS/pages/AllPages.vue";
+import CreatePage from "@/views/CMS/pages/CreatePage.vue";
+import EditPage from "@/views/CMS/pages/EditPage.vue";
+import AllTemplates from "@/views/CMS/templates/AllTemplates.vue";
+import CreateTemplate from "@/views/CMS/templates/CreateTemplate.vue";
+import EditTemplate from "@/views/CMS/templates/EditTemplate.vue";
+import ThemePage from "@/views/CMS/themes/theme.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -191,6 +201,58 @@ const router = createRouter({
       name: "bets",
       component: Bets,
       
+    },
+    {
+      path: "/pages",
+      name: "pages",
+      component: AllPages,
+    },
+    {
+      path: "/pages/create",
+      name: "create-page",
+      component: CreatePage,
+    },
+    {
+      path: "/pages/edit/:id",
+      name: "edit-page",
+      component: EditPage,
+    },
+
+    {
+      path: "/email-templates",
+      name: "email-templates",
+      component: AllTemplates,
+    },
+    {
+      path: "/email-templates/create",
+      name: "create-email-template",
+      component: CreateTemplate,
+    },
+    {
+      path: "/email-templates/edit/:id",
+      name: "edit-email-template",
+      component: EditTemplate,
+    },
+
+    {
+      path: "/legal-pages",
+      name: "legal-pages",
+      component: AllLegalPages,
+    },
+    {
+      path: "/legal-pages/create",
+      name: "create-legal-page",
+      component: CreateLegalPage,
+    },
+    {
+      path: "/legal-pages/edit/:id",
+      name: "edit-legal-page",
+      component: EditLegalPage,
+    },
+    {
+      path: "/theme",
+      name: "theme",
+      component: ThemePage,
     },
     {
       path: '/:catchAll(.*)',

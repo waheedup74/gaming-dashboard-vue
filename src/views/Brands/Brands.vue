@@ -228,9 +228,11 @@ const submitCreateBrandForm = () => {
 };
 
 onMounted(() => {
-  if(authStore.tenantId) {
-    router.push('/');
-  }  
+  brands.value = authStore.allTenants
+  console.log(authStore.allTenants)
+  // if(authStore.tenantId) {
+  //   router.push('/');
+  // }  
 })
 
 watchEffect(() => {

@@ -28,9 +28,9 @@
               <th></th>
             </tr>
           </thead>
-          <tbody v-if="lists.length > 0">
-            <tr v-for="list in lists" :key="list.id">
-              <td>{{ list.name }}</td>
+          <tbody >
+            <tr v-for="list in 4" :key="list.id">
+              <td>List {{ list }}</td>
               <td>
                 <router-link :to="'/games/create-game-list/' + list.id">
                   View
@@ -38,11 +38,11 @@
               </td>
             </tr>
           </tbody>
-          <tbody v-else>
+          <!-- <tbody v-else>
             <tr>
               <td colspan="2" style="text-align: center;">No list found.</td>
             </tr>
-          </tbody>
+          </tbody> -->
         </table>
       </div>
     </div>

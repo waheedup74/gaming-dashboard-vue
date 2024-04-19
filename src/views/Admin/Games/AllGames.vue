@@ -49,38 +49,35 @@
                 <th><span>Category <span v-html="SortingIcon('#B4BDC6', '#B4BDC6')" /></span></th>
               </tr>
             </thead>
-            <tbody v-if="allGames.length > 0">
-              <tr v-for="(game) in allGames" :key="game.externalId">
-                <td>{{ game.name }}</td>
+            <tbody>
+              <tr v-for="(game) in 4" :key="game">
+                <td>Game name</td>
                 <td>
                   <div class="provider-logo-container">
-                    <img v-if="game.provider === 'Pragmatic'" src="/images/pragmatic-play-dark.svg" alt="" class="provider-logo">
-                    <span v-else>{{ game.provider }}</span>
+                    <img  src="/images/pragmatic-play-dark.svg" alt="" class="provider-logo">
+                    <!-- <span v-else>{{ game.provider }}</span> -->
                   </div>
                 </td>
-                <td>{{ game.externalId }}</td>
+                <td>game_id</td>
                 <td>
-                  <img src="/images/svg/check-green-r.svg" alt="check" v-if="game.hasFreeSpins">
-                  <img src="/images/svg/cross-red-r.svg" alt="cross" v-else>
+                  <img src="/images/svg/check-green-r.svg" alt="check">
+                  <!-- <img src="/images/svg/cross-red-r.svg" alt="cross" v-else> -->
                 </td>
-                <td>{{ game.minBet }}</td>
+                <td>10</td>
                 <td>
                   <div class="category-logo-container">
-                    <div :style="{ background: categories.find(c => c.categoryName.toLocaleLowerCase() === game.category.toLocaleLowerCase())?.background}" class="category-logo" >
-                      <img :style="{ color: 'red' }"  :src="categories.find(c => c.categoryName.toLocaleLowerCase() === game.category.toLocaleLowerCase())?.categoryIcon" style="height: 100%" alt="" />
+                    <div class="category-logo" >
+                      <img  src="/images/slotIcon2.svg" style="height: 100%" alt="" />
                     </div>
-                    {{ capitalizeFirstLetter(game.category) }}
+                    Slots
                   </div>
                 </td>
               </tr>
             </tbody>
-            <tbody v-else>
-              <tr ><td colspan="6" style="text-align: center;">No games found.</td></tr>
-            </tbody>
           </table>
         </div>
        
-        <template v-if="allGames.length > 0">
+        <template>
           <Pagination @page-changed="setPage" :pageSize="pageSize" :pageCount="pageCount" :rowCount="rowCount" />
         </template>
         
@@ -132,7 +129,7 @@ const handleSelected = (options) => {
 };
 
 onMounted(async () => {
-  await getGames();
+  // await getGames();
 });
 
 const searchForm = reactive({
@@ -190,6 +187,6 @@ const setPage = async (index) => {
   currentPage.value = index;
   if(currentPage.value < 1) currentPage.value = 1;
   if(currentPage.value > pageCount) currentPage.value = pageCount;
-  await getGames();
+  // await getGames();
 }
 </script>

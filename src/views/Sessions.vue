@@ -15,11 +15,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(session, index) in sessions" :key="index">
-              <td>{{ session.date.split('T')[0] }}</td>
-              <td>{{ session.ipAddress }}</td>
-              <td>{{ session.device }}</td>
-              <td>{{ session.country }}</td>
+            <tr v-for="(session, index) in 6" :key="index">
+              <td>2024-04-20</td>
+              <td>167.195.100.30</td>
+              <td>Windows</td>
+              <td>UK</td>
               <td>
                 <button @click.prevent="logoutSession(session.id)" class="table-btn">Logout</button></td>
             </tr>

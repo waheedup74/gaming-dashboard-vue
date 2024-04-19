@@ -2,21 +2,21 @@
     <div>
         <div class="banner">
             <img src="/images/welcome-offers.png" alt="" />
-            <h1>{{ offer.name }}</h1>
+            <h1>New Offer</h1>
         </div>
         <div class="breadcrumbs">
             <router-link to="/welcome-offers">Welcome Offers</router-link>
             <span>
                 <img src="/images/svg/chevron-breadcrumb.svg" alt="chevron">
             </span>
-            <span class="current">{{ offer.name }}</span>
+            <span class="current">New offer</span>
         </div>
         <div class="dashboard-stats-container">
             <div class="card">
                 <div class="stat-container">
                     <div>
                         <p>Players</p>
-                        <h3>{{ addCommas(offer.players) }}</h3>
+                        <h3>{{ addCommas(100) }}</h3>
                     </div>
                     <img src="/images/svg/Players.svg" alt="DA">
                 </div>
@@ -25,7 +25,7 @@
                 <div class="stat-container">
                     <div>
                         <p>Wager</p>
-                        <h3>£{{ addCommas(offer.wager) }}</h3>
+                        <h3>£{{ addCommas(34676) }}</h3>
                     </div>
                     <img src="/images/svg/TotalWager.svg" alt="TW">
                 </div>
@@ -34,7 +34,7 @@
                 <div class="stat-container">
                     <div>
                         <p>Total Bonus Credited</p>
-                        <h3 style="color: #FF3E1D;">£{{ addCommas(offer.spinValue * offer.numSpins * offer.bonuses) }}</h3>
+                        <h3 style="color: #FF3E1D;">£{{ addCommas(674574) }}</h3>
                     </div>
                     <img src="/images/svg/Bonuses.svg" alt="Bo">
                 </div>
@@ -46,38 +46,38 @@
                 <div class="offer-detail-card">
                     <h3>Details</h3>
                     <div class="offer-detail">
-                        <p>Start Date: <span>{{ formatDate(offer.startDate) }}</span></p>
-                        <p>End Date: <span>{{ formatDate(offer.endDate) }}</span></p>
-                        <p>Max Win for Canpaign: <span>{{ offer.maxBudget }}</span></p>
-                        <p>Currency: <span>{{ offer.currency }}</span></p>
+                        <p>Start Date: <span>2024-04-20</span></p>
+                        <p>End Date: <span>2024-04-20</span></p>
+                        <p>Max Win for Canpaign: <span>3000</span></p>
+                        <p>Currency: <span>GBP</span></p>
                     </div>
                 </div>
                 <div class="offer-detail-card">
                     <h3>Conditions</h3>
                     <div class="offer-detail">
-                        <p>Min. Deposit: <span>{{ offer.minDeposit }}</span></p>
-                        <p>Signup Bonus Code: <span>{{ offer.signupCode }}</span></p>
-                        <p>Wager Required: <span>{{ offer.wagerRequired }}</span></p>
-                        <p>Period (days): <span>{{ offer.period }}</span></p>
+                        <p>Min. Deposit: <span>659</span></p>
+                        <p>Signup Bonus Code: <span>test_code</span></p>
+                        <p>Wager Required: <span>777</span></p>
+                        <p>Period (days): <span>10</span></p>
                     </div>
                 </div>
                 <div class="offer-detail-card">
                     <h3>Free Spins</h3>
                     <div class="offer-detail">
-                        <p>Number of Spins: <span>{{ offer.numSpins }}</span></p>
-                        <p>Spin Value: <span>{{ offer.spinValue }}</span></p>
-                        <p>Game: <span>{{ offer.game }}</span></p>
-                        <p>Expires (Days): <span>{{ offer.expires }}</span></p>
+                        <p>Number of Spins: <span>6</span></p>
+                        <p>Spin Value: <span>56</span></p>
+                        <p>Game: <span>King's Clash</span></p>
+                        <p>Expires (Days): <span>29</span></p>
                     </div>
                 </div>
-                <!-- <div class="offer-detail-card">
+                <div class="offer-detail-card">
                     <h3>Playthough Requirements</h3>
                     <div class="offer-detail">
                         <p>Rollover: <span>40x</span></p>
                         <p>Eligible Games: <span><router-link to="/games/create-game-list/1">Game List 1</router-link></span></p>
                         <p>Period (In Days): <span>7</span></p>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
         <div class="card">
@@ -99,12 +99,12 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody v-if="bonuses.length > 0">
-              <tr v-for="(b, index) in bonuses" :key="index">
-                <td><router-link :to="{ name: 'player-details', params: { id: b.playerId }}">{{b.playerId}}</router-link></td>
-                <td>{{formatDate(b.dateCredited)}}</td>
+            <tbody >
+              <tr v-for="(b, index) in 4" :key="index">
+                <td><router-link :to="{ name: 'player-details', params: { id: 10001 }}">10001</router-link></td>
+                <td>2024-04-20</td>
                 <td>
-                  <span style="text-transform: uppercase" class="active-green">{{b.status}} </span>
+                  <span style="text-transform: uppercase" class="active-green">Active</span>
                   <!-- <span v-if="index === 1" class="status-error"><img src="/images/svg/error-red-16.svg" alt="icon">Error </span> -->
                   <!-- <span v-if="index === 2">Complete </span> -->
                   <!-- <span v-if="index === 3" class="active-green">Active </span> -->
@@ -117,15 +117,15 @@
                   </a>
                 </td> -->
                 <td>
-                  <button v-if="b.status === 'error'" class="btn-red-sm">Retry</button>
+                  <button class="btn-red-sm">Retry</button>
                 </td>
               </tr>
             </tbody>
-            <tbody v-else>
+            <!-- <tbody v-else>
               <tr>
                 <td colspan="7" style="text-align: center;">No record found.</td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table> 
           
             <Pagination @page-changed="setBonusPage" :pageSize="bonusPageSize" :pageCount="bonusPageCount" :rowCount="bonusRowCount" />          

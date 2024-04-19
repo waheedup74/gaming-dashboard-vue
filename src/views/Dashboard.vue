@@ -71,7 +71,7 @@
       </div>
 
     </div>
-    <!-- <div v-if="!authStore.tenantName && !authStore.tenantIcon" class="card">
+    <div  class="card">
       <div class="table-container">
         <table>
           <thead>
@@ -86,22 +86,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(stats, index) in brandsStats" :key="index">
+            <tr v-for="(stats, index) in authStore.allTenants" :key="index">
               <td>
-                {{stats}}
-                <div v-if="stats.brand != null" class="brand-name-container">
-                  <div :style="[{ color: stats.brand.defaultLogo.color }, { background: stats.brand.defaultLogo.background }]" class="brand-name-logo">
-                    {{ capitalizeFirstLetter(stats.brand.name[0]) }}
+                <div class="brand-name-container">
+                  <div :style="[{ color: stats.defaultLogo.color }, { background: stats.defaultLogo.background }]" class="brand-name-logo">
+                    {{ capitalizeFirstLetter(stats.name[0]) }}
                   </div>
-                  <a @click.prevent="setTenant(stats.brand.key, stats.brand.name, stats.brand.iconUrl)" href="#">{{ stats.brand.name }}</a>
+                  <a @click.prevent="setTenant(stats.key, stats.name, stats.iconUrl)" href="#">{{ stats.name }}</a>
                 </div>
               </td>
-              <td>{{ addCommas(stats.playersCount) }}</td>
-              <td>{{ addCommas(stats.depositCount) }}</td>
-              <td>£{{ addCommas(stats.totalDepositAmount) }}</td>
-              <td>£{{ addCommas(stats.totalWager) }}</td>
-              <td>{{ addCommas(stats.numBonusesCredited) }}</td>
-              <td>£{{ addCommas(stats.totalBonusesCredited) }}</td>
+              <td>{{ addCommas(675) }}</td>
+              <td>{{ addCommas(78788) }}</td>
+              <td>£{{ addCommas(753856.76) }}</td>
+              <td>£{{ addCommas(8986.74) }}</td>
+              <td>{{ addCommas(8787) }}</td>
+              <td>£{{ addCommas(67534.76) }}</td>
             </tr>
           </tbody>
         </table>

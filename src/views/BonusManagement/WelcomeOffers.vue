@@ -29,18 +29,18 @@
                         </tr>
                     </thead>
                     <tbody> 
-                        <tr v-for="(offer, index) in activeWelcomeOffers" :key="index">
-                            <td>{{ offer.name }}</td>
-                            <td>{{ formatDateOnly(offer.startDate) }}</td>
-                            <td>{{ formatDateOnly(offer.endDate) }}</td>
-                            <td>{{ offer.signupCode }}</td>
-                            <td>{{ offer.players }}</td>
-                            <td>£{{ offer.wager }}</td>
-                            <td>£{{ offer.bonuses *offer.numSpins * offer.spinValue }}</td>
-                            <td><router-link :to="{ name: 'welcome-offer-detail', params: { id: offer.id }}">Details</router-link></td>
-                            <td><router-link :to="{ name: 'edit-welcome-offer', params: { id: offer.id }}">Edit</router-link></td>
+                        <tr v-for="(offer, index) in 4" :key="index">
+                            <td>New Offer</td>
+                            <td>2024-04-20</td>
+                            <td>2024-04-20</td>
+                            <td>abcd_code</td>
+                            <td>Player Name</td>
+                            <td>£200</td>
+                            <td>£30</td>
+                            <td><router-link :to="{ name: 'welcome-offer-detail', params: { id: 100 }}">Details</router-link></td>
+                            <td><router-link :to="{ name: 'edit-welcome-offer', params: { id: 100 }}">Edit</router-link></td>
                         </tr>
-                        <tr v-if="!activeWelcomeOffers.length"><td colspan="9" style="text-align: center;">No records found.</td></tr>
+                        <!-- <tr v-if="!activeWelcomeOffers.length"><td colspan="9" style="text-align: center;">No records found.</td></tr> -->
                     </tbody>
                 </table>
             </div>
@@ -66,18 +66,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(offer, index) in pastWelcomeOffers" :key="index">
-                            <td>{{ offer.name }}</td>
-                            <td>{{ formatDateOnly(offer.startDate) }}</td>
-                            <td>{{ formatDateOnly(offer.endDate) }}</td>
-                            <td>{{ offer.signupCode }}</td>
-                            <td>{{ offer.players }}</td>
-                            <td>£{{ addCommas(offer.wager) }}</td>
-                            <td>{{ offer.bonuses }}</td>
-                            <td><router-link :to="{ name: 'welcome-offer-detail', params: { id: offer.id }}">Details</router-link></td>
+                        <tr v-for="(offer, index) in 4" :key="index">
+                            <td>Past Offer</td>
+                            <td>2024-04-20</td>
+                            <td>2024-04-20</td>
+                            <td>abcd_code</td>
+                            <td>Player Name</td>
+                            <td>£200</td>
+                            <td>£30</td>
+                            <td><router-link :to="{ name: 'welcome-offer-detail', params: { id: 100}}">Details</router-link></td>
                             <!-- <td><router-link :to="{ name: 'edit-welcome-offer', params: { id: offer.id }}">Edit</router-link></td> -->
                         </tr>
-                        <tr v-if="!pastWelcomeOffers.length"><td colspan="9" style="text-align: center;">No records found.</td></tr>
+                        <!-- <tr v-if="!pastWelcomeOffers.length"><td colspan="9" style="text-align: center;">No records found.</td></tr> -->
                     </tbody>
                 </table>
             </div>
