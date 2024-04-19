@@ -122,7 +122,17 @@ import api from "@/api/api";
 import { useAuthStore } from '@/stores/authStore';
 
 const authStore = useAuthStore();
-const roles = ref([]);
+const roles = ref([
+  {
+    name: "Admin"
+  },
+  {
+    name: "Operator"
+  },
+  {
+    name: "Support"
+  },
+]);
 const role = ref(null);
 const modalType = ref(null);
 const name = ref("");
@@ -141,9 +151,9 @@ const isModalVisible = ref(false);
 
 onMounted(async () => {
   getRoles();
-  if(authStore.tenantId) {
-    router.push('/');
-  }  
+  // if(authStore.tenantId) {
+  //   router.push('/');
+  // }  
 });
 
 const getRoles = async () => {

@@ -242,9 +242,9 @@ function dropdownList (list){
 onMounted(async () => {
   getRole();
   getUsers();
-  if(authStore.tenantId) {
-    router.push('/');
-  } 
+  // if(authStore.tenantId) {
+  //   router.push('/');
+  // } 
 });
 
 const showModal = (data, type) => {

@@ -37,7 +37,7 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: Dashboard,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/login",
@@ -58,140 +58,139 @@ const router = createRouter({
       path: "/security",
       name: "security",
       component: Security,
-      meta: { requiresAuth: true }
     },
     {
       path: "/sessions",
       name: "sessions",
       component: Sessions,
-      meta: { requiresAuth: true }
+      
     },
     // {
     //   path: "/account",
     //   name: "account",
     //   component: Account,
-    //   meta: { requiresAuth: true }
+    //   
     // },
     {
       path: "/users",
       name: "users",
       component: Users,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/roles",
       name: "roles",
       component: Roles,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/roles/:id",
       name: "edit-role",
       component: EditRole,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/brands",
       name: "brands",
       component: Brands,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/brands/:id",
       name: "edit-brand",
       component: EditBrand,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/games",
       name: "games",
       component: Games,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/games/games-lists",
       name: "games-lists",
       component: GamesLists,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/games/create-game-list/:id",
       name: "create-game-list",
       component: CreateGameList,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/players",
       name: "players",
       component: Players,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/players/:id",
       name: "player-details",
       component: PlayerDetails,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/import-players",
       name: "import-players",
       component: ImportPlayers,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/welcome-offers",
       name: "welcome-offers",
       component: WelcomeOffers,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/welcome-offers/detail/:id",
       name: "welcome-offer-detail",
       component: WelcomeOfferDetail,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/welcome-offers/create",
       name: "create-welcome-offer",
       component: CreateWelcomeOffer,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/welcome-offers/edit/:id",
       name: "edit-welcome-offer",
       component: EditWelcomeOffer,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/credit-from-csv",
       name: "credit-from-csv",
       component: CreditFromCSV,
-      meta: { requiresAuth: true }
+      
     },
     // !! TEMPORARY HIDING
     // {
     //   path: "/bonus-balance",
     //   name: "bonus-balance",
     //   component: BonusBalance,
-    //   meta: { requiresAuth: true }
+    //   
     // },
     {
       path: "/settings",
       name: "settings",
       component: Settings,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/payments",
       name: "payments",
       component: Payments,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: "/bets",
       name: "bets",
       component: Bets,
-      meta: { requiresAuth: true }
+      
     },
     {
       path: '/:catchAll(.*)',

@@ -19,7 +19,7 @@
         <div class="stat-container">
           <div>
             <p>Players</p>
-            <h3 style="color: #696CFF">{{ addCommas(totalStats.playersCount) }}</h3>
+            <h3 style="color: #696CFF">{{ addCommas(24564) }}</h3>
           </div>
           <img src="/images/svg/Players.svg" alt="Pl">
         </div>
@@ -28,7 +28,7 @@
         <div class="stat-container">
           <div>
             <p>Deposit Count</p>
-            <h3>{{ addCommas(totalStats.depositCount) }}</h3>
+            <h3>{{ addCommas(5643) }}</h3>
           </div>
           <img src="/images/svg/DepositCount.svg" alt="DC">
         </div>
@@ -37,7 +37,7 @@
         <div class="stat-container">
           <div>
             <p>Total Deposited</p>
-            <h3>£{{ addCommas(totalStats.totalDepositAmount) }}</h3>
+            <h3>£{{ addCommas(34125) }}</h3>
           </div>
           <img src="/images/svg/DepositAmount.svg" alt="DA">
         </div>
@@ -46,7 +46,7 @@
         <div class="stat-container">
           <div>
             <p>Total Wager</p>
-            <h3>£{{ addCommas(totalStats.totalWager) }}</h3>
+            <h3>£{{ addCommas(3625) }}</h3>
           </div>
           <img src="/images/svg/TotalWager.svg" alt="TW">
         </div>
@@ -55,7 +55,7 @@
         <div class="stat-container">
           <div>
             <p>Bonuses Credited</p>
-            <h3>{{ addCommas(totalStats.numBonusesCredited) }}</h3>
+            <h3>{{ addCommas(110) }}</h3>
           </div>
           <img src="/images/svg/Bonuses.svg" alt="Bo">
         </div>
@@ -64,14 +64,14 @@
         <div class="stat-container">
           <div>
             <p>Total Bonus Amount</p>
-            <h3>£{{ addCommas(totalStats.totalBonusesCredited) }}</h3>
+            <h3>£{{ addCommas(1196.10) }}</h3>
           </div>
           <img src="/images/svg/TotalBonusAmount.svg" alt="TB">
         </div>
       </div>
 
     </div>
-    <div v-if="!authStore.tenantName && !authStore.tenantIcon" class="card">
+    <!-- <div v-if="!authStore.tenantName && !authStore.tenantIcon" class="card">
       <div class="table-container">
         <table>
           <thead>
@@ -88,6 +88,7 @@
           <tbody>
             <tr v-for="(stats, index) in brandsStats" :key="index">
               <td>
+                {{stats}}
                 <div v-if="stats.brand != null" class="brand-name-container">
                   <div :style="[{ color: stats.brand.defaultLogo.color }, { background: stats.brand.defaultLogo.background }]" class="brand-name-logo">
                     {{ capitalizeFirstLetter(stats.brand.name[0]) }}
@@ -105,7 +106,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -118,7 +119,30 @@ import { SortingIcon } from '@/utils';
 import api from '@/api/api';
 
 const authStore = useAuthStore();
-const brandsStats = ref(null);
+const brandsStats = ref([
+    {
+        id: 2,
+        tenantId: "test2",
+        playersCount: 23483,
+        depositCount: 126,
+        totalBets: 28984,
+        numBonusesCredited: 47,
+        totalWager: 1366.34,
+        totalDepositAmount: 1245.34,
+        totalBonusesCredited: 448.34
+    },
+    {
+        id: 1,
+        tenantId: "test1",
+        playersCount: 1023,
+        depositCount: 124,
+        totalBets: 28984,
+        numBonusesCredited: 57,
+        totalWager: 13566.34,
+        totalDepositAmount: 12454.34,
+        totalBonusesCredited: 748.34
+    }
+]);
 const totalStats = ref({ playersCount: 0, depositCount: 0, totalDepositAmount: 0, totalWager: 0, numBonusesCredited: 0, totalBonusesCredited: 0 });
 const intervalId = ref(null);
 const intervalPaused = ref(false);
@@ -126,6 +150,7 @@ const sortDirection = ref('desc');
 const sortByColumn = ref('brandName');
 
 const getDefaultLogoColor = (name) => {
+  console.log(authStore.allTenants)
   return authStore.allTenants.find(item => item.name.toLocaleLowerCase() === authStore.tenantName.toLocaleLowerCase())?.defaultLogo[name]
 }
 
@@ -148,6 +173,8 @@ watch(() => authStore.tenantName, async () => {
 watch(() => authStore.allTenants, async () => {
   await loadBrands();
 });
+
+
 
 async function loadBrands() {
   const updatedStats = { ...totalStats.value };

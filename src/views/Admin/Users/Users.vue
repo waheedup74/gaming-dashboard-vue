@@ -337,7 +337,47 @@ import { useAuthStore } from "@/stores/authStore";
 import { z } from 'zod';
 import router from "@/router/index";
 
-const users = ref([]);
+const users = ref([
+    {
+        "id": "86e6eb7f-848e-4ebd-83e3-64f140d69ef1",
+        "userName": "admin",
+        "dateJoined": "2024-03-29T06:19:24.777709Z",
+        "email": "test@test.com",
+        "emailConfirmed": false,
+        "tfaEnabled": false,
+        "deleted": false,
+        "userLogo": {
+            "color": "#03C3EC",
+            "background": "#E5F9FD"
+        }
+    },
+    {
+        "id": "86e6eb7f-848e-4ebd-83e3-64f140d69ef1",
+        "userName": "test1",
+        "dateJoined": "2024-03-29T06:19:24.777709Z",
+        "email": "test@test.com",
+        "emailConfirmed": false,
+        "tfaEnabled": false,
+        "deleted": false,
+        "userLogo": {
+            "color": "#03C3EC",
+            "background": "#E5F9FD"
+        }
+    },
+    {
+        "id": "86e6eb7f-848e-4ebd-83e3-64f140d69ef1",
+        "userName": "test2",
+        "dateJoined": "2024-03-29T06:19:24.777709Z",
+        "email": "test@test.com",
+        "emailConfirmed": false,
+        "tfaEnabled": false,
+        "deleted": false,
+        "userLogo": {
+            "color": "#03C3EC",
+            "background": "#E5F9FD"
+        }
+    }
+]);
 const user = ref(null);
 const tenants=ref([]);
 const modalType = ref(null);
@@ -439,9 +479,9 @@ const closeModal = () => {
 };
 
 onMounted(async () => {
-  if(authStore.tenantId) {
-    router.push('/');
-  } 
+  // if(authStore.tenantId) {
+  //   router.push('/');
+  // } 
   getUsers();
 });
 

@@ -10,7 +10,7 @@
       </div>
       <h4>Welcome to our back office <img src="/images/wave-hand.png" alt="hand"></h4>
       <p>Please sign-in to your account to access all our features</p>
-      <form @submit.prevent="submitLoginForm" autocomplete="off">
+      <form autocomplete="off">
         <div class="">
           <label for="username">USERNAME</label>
           <input v-model="loginForm.username" type="text" placeholder="Username" id="username"/>
@@ -31,7 +31,7 @@
             Forgot Password?
           </router-link>
         </div>
-        <button type="submit" class="btn-lg">Sign In</button>
+        <button @click="login()" type="submit" class="btn-lg">Sign In</button>
       </form>
     </div>
   </div>
@@ -80,11 +80,7 @@ const submitLoginForm = () => {
 
 async function login() {
   // TODO validation
-  const response = await api.auth.login(loginForm.username, loginForm.password);
-  if (response.status == 200) {
-    authStore.login(response.data);
     router.push("/");
-  }
 }
 
 const togglePasswordType = () => {

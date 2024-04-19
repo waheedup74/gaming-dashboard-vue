@@ -161,3 +161,28 @@ export const currencyList = [
       id: 'USD',
   }
 ];
+
+export const tenants = [
+    {
+        "id": 1,
+        "key": "test1",
+        "name": "Test 1",
+        "website": "Test1.com",
+        "iconUrl": null,
+        "defaultLogo": {
+            "color": "#696CFF",
+            "background": "#E7E7FF"
+        }
+    },
+    {
+        "id": 2,
+        "key": "test2",
+        "name": "Test 2",
+        "website": "Test2.com",
+        "iconUrl": null,
+        "defaultLogo": {
+            "color": "#03C3EC",
+            "background": "#E5F9FD"
+        }
+    }
+]

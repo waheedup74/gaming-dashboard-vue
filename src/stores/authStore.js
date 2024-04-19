@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import instance from '@/api/axiosInstance';
 import { jwtDecode } from "jwt-decode";
+import { tenants } from '@/utils';
 
 export const useAuthStore = defineStore('authStore', () => {
   const userName = ref('');
@@ -13,7 +14,7 @@ export const useAuthStore = defineStore('authStore', () => {
   const tenantId = ref('');
   const tenantName = ref('');
   const tenantIcon = ref('');
-  const allTenants = ref([])
+  const allTenants = ref(tenants)
   
   function login(data) {
     userName.value = data.user.userName;
